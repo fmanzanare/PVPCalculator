@@ -2,6 +2,10 @@
 	box-sizing: border-box;
 }
 
+h1 {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .main-container {
 	width: 100%;
 	height: 100%;
@@ -18,7 +22,7 @@
 }
 
 #icon {
-	width: 4%;
+	width: 3%;
 	height: 100%;
 	margin-right: 2em;
 }
@@ -41,13 +45,20 @@
 	padding-top: 1em;
 }
 
+.material-symbols-outlined {
+	padding-top: 0.6em;
+	margin-right: 1em;
+}
+
 .sideMenu-item {
 	display: flex;
 	margin-top: 1em;
+	padding-left: 1em;
 }
 
 .sideMenu-item:hover {
 	background-color: #353c42;
+	border-radius: 10px;
 }
 
 main {
@@ -83,4 +94,24 @@ main {
 	grid-row: 1;
 	grid-column: 2/3;
 	width: 80%;
+}
+
+.compra-item, .plato-item {
+	display: grid;
+	grid-template-columns: 2;
+	grid-template-rows: 1;
+	background-color:teal;
+	border-radius: 10px;
+	padding: 0 2em;
+	color: whitesmoke;
+	margin-bottom: 1em;
+}
+
+.item-description {
+	grid-column: 1/2;
+}
+
+.item-price {
+	grid-column: 2/3;
+	justify-self: end;
 }
