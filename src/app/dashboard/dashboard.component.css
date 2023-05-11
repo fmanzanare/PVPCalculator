@@ -1,0 +1,117 @@
+* {
+	box-sizing: border-box;
+}
+
+h1 {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.main-container {
+	width: 100%;
+	height: 100%;
+}
+
+.nav-bar {
+	display: flex;
+	background-color: #213051;
+	border: 1px solid whitesmoke;
+	height: 10%;
+	padding: 1em 2em;
+	color: whitesmoke;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#icon {
+	width: 3%;
+	height: 100%;
+	margin-right: 2em;
+}
+
+.central-section {
+	display: flex;
+	height: 90%;
+}
+
+.side-menu {
+	background-color: #212529;
+	width: 20%;
+	height: 100%;
+	color: whitesmoke;
+	border: 1px solid whitesmoke;
+	padding: 0 1em;
+	font-size: 18px;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-style: italic;
+	padding-top: 1em;
+}
+
+.material-symbols-outlined {
+	padding-top: 0.6em;
+	margin-right: 1em;
+}
+
+.sideMenu-item {
+	display: flex;
+	margin-top: 1em;
+	padding-left: 1em;
+}
+
+.sideMenu-item:hover {
+	background-color: #353c42;
+	border-radius: 10px;
+}
+
+main {
+	display: grid;
+	grid-template-rows: 1;
+	grid-template-columns: 2;
+	background-color: #212529;
+	padding: 0 1em;
+	width: 80%;
+	color: whitesmoke;
+	border: 1px solid whitesmoke;
+	align-items: center;
+	justify-items: center;
+}
+
+#recetas, #compras {
+	height: 70%;
+	background-color: gainsboro;
+	color: black;
+	border-radius: 10px;
+	padding: 1em 2em;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 20px;
+}
+
+#compras {
+	grid-row: 1;
+	grid-column: 1/2;
+	width: 80%;
+}
+
+#recetas {
+	grid-row: 1;
+	grid-column: 2/3;
+	width: 80%;
+}
+
+.compra-item, .plato-item {
+	display: grid;
+	grid-template-columns: 2;
+	grid-template-rows: 1;
+	background-color:teal;
+	border-radius: 10px;
+	padding: 0 2em;
+	color: whitesmoke;
+	margin-bottom: 1em;
+}
+
+.item-description {
+	grid-column: 1/2;
+}
+
+.item-price {
+	grid-column: 2/3;
+	justify-self: end;
+}
