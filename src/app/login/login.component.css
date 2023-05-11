@@ -3,27 +3,6 @@ main {
 	height: 100%;
 }
 
-.nav-bar {
-	display: flex;
-	background-color: #213051;
-	border: 1px solid whitesmoke;
-	height: 10%;
-	padding: 1em 2em;
-	color: whitesmoke;
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-h1 {
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	color: whitesmoke;
-}
-
-#icon {
-	width: 3%;
-	height: 100%;
-	margin-right: 2em;
-}
-
 .login-section {
 	display: grid;
 	justify-items: center;
