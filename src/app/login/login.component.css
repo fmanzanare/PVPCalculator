@@ -80,3 +80,15 @@ button {
 button:hover {
 	background-color: teal;
 }
+
+p {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	color: whitesmoke;
+	font-size: 18px;
+}
+
+a {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	color: aqua;
+	font-size: 18px;
+}
