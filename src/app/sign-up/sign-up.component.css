@@ -1,0 +1,87 @@
+.title-container, .form-container {
+	width: 100%;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	color: whitesmoke;
+}
+
+.title-container {
+	text-align: center;
+}
+
+h1 {
+	font-size: 40px;
+	margin-bottom: 0.5em;
+}
+
+p {
+	margin-top: 0;
+	font-size: 25px;
+}
+
+a {
+	text-decoration: none;
+	color: aqua;
+}
+
+.form-container {
+	margin-top: 3em;
+	display: grid;
+	grid-template-columns: 1;
+	grid-template-rows: 1;
+	justify-items: center;
+}
+
+form {
+	display: grid;
+	width: 50%;
+	grid-template-rows: 6;
+	grid-template-columns: 1;
+	row-gap: 1em;
+}
+
+.name {
+	grid-row: 1/2;
+}
+
+.last_name {
+	grid-row: 2/3;
+}
+.email {
+	grid-row: 3/4;
+}
+
+.passw {
+	grid-row: 4/5;
+}
+
+.conf_pass {
+	grid-row: 5/6;
+}
+
+.register {
+	grid-row: 6/7;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 30px;
+	margin-top: 1em;
+	padding: 0.5em 0;
+	font-weight: bold;
+	background-color: #213051;
+	border: 1px solid white;
+	color: whitesmoke;
+}
+
+.register:hover {
+	background-color: teal;
+}
+
+label {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 20px;
+}
+
+input {
+	width: 100%;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 25px;
+	padding: 0.5em 0;
+}
