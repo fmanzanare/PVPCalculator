@@ -18,3 +18,23 @@ h1 {
 	height: 100%;
 	margin-right: 2em;
 }
+
+.button {
+	display: flex;
+	width: 80%;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+button {
+	padding: 0.5em 1em;
+	font-size: 20px;
+	border: 1px solid white;
+	color: whitesmoke;
+	background-color: teal;
+}
+
+button:hover {
+	background-color: aqua;
+	color: black;
+}
