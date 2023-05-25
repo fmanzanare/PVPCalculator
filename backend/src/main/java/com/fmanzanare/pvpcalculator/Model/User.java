@@ -10,16 +10,16 @@ import jakarta.persistence.Table;
 public class User {
 
 	@Id
-	@Column(name = "userEmail", length = 80, nullable = false)
+	@Column(name = "user_email", length = 80, nullable = false)
 	private String	userEmail;
 
-	@Column(name = "userName", length = 60, nullable = false)
+	@Column(name = "user_name", length = 60, nullable = false)
 	private String	userName;
 
-	@Column(name = "userLastName", length = 100, nullable = false)
+	@Column(name = "user_last_name", length = 100, nullable = false)
 	private String	userLastName;
 
-	@Column(name = "userPassw", length = 300, nullable = false)
+	@Column(name = "user_passw", length = 300, nullable = false)
 	private String	userPassw;
 
 	// * GETTERS
