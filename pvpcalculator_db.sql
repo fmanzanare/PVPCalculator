@@ -128,11 +128,11 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `userEmail` varchar(80) NOT NULL,
-  `userName` varchar(60) NOT NULL,
-  `userLastName` varchar(100) NOT NULL,
-  `userPassw` varchar(300) NOT NULL,
-  PRIMARY KEY (`userEmail`)
+  `user_email` varchar(80) NOT NULL,
+  `user_name` varchar(60) NOT NULL,
+  `user_last_name` varchar(100) NOT NULL,
+  `user_passw` varchar(300) NOT NULL,
+  PRIMARY KEY (`user_email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -155,4 +155,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-24 11:08:14
+-- Dump completed on 2023-05-25 11:49:08
