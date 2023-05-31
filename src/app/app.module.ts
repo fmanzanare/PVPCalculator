@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { SideMenuComponent } from './side-menu/side-menu.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     LoginComponent,
     NavBarComponent,
     SignUpComponent,
+    SideMenuComponent,
   ],
   imports: [
     BrowserModule,

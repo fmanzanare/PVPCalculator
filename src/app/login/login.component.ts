@@ -28,7 +28,7 @@ export class LoginComponent {
 		this.usuarioService.getUserByMail(email.value).subscribe(usuario => {
 			console.log(usuario);
 			if (usuario.userPassw === passw.value) {
-				this.router.navigate(['dashboard']);
+				this.router.navigate(['side-menu']);
 			} else {
 				alert("El usuario o la contraseña son incorrectos.");
 			}
