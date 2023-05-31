@@ -1,8 +1,6 @@
 <main>
-	<app-nav-bar></app-nav-bar>
 	<div class="login-section">
 		<div class="login-inner">
-			<!-- <img src="../../assets/img/rocket.png"> -->
 			<form>
 				<div id="user">
 					<label name="user">Usuario:</label><br>
@@ -14,8 +12,7 @@
 				</div>
 				<button>Entrar</button>
 				<p>
-					Aún no estás registrado? Pulsa el siguiente enlace ->
-					<a>Regístrate!</a>
+					Aún no estás registrado? Pulsa aquí para <a routerLink="sign-up" routerLinkActive="active" (click)="goToSignUp()">REGISTRARTE!</a>
 				</p>
 			</form>
 		</div>
