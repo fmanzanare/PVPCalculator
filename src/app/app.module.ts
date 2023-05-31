@@ -1,19 +1,14 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
-
-const appRoutes: Routes = [
-	{ path: 'login', component: LoginComponent},
-	{ path: 'sign-up', component: SignUpComponent},
-]
 
 @NgModule({
   declarations: [
@@ -25,8 +20,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+	AppRoutingModule,
 	ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
