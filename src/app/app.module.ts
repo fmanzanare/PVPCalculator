@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -25,7 +26,8 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     BrowserModule,
 	AppRoutingModule,
 	ReactiveFormsModule,
-	HttpClientModule
+	HttpClientModule,
+	FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

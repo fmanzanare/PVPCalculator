@@ -16,4 +16,8 @@ export class UsuarioService {
 		return (this.httpClient.get<Usuario>(`${this.baseURL}/${email}`));
 	}
 
+	addUser(user: Usuario): Observable<Object> {
+		return (this.httpClient.post(`${this.baseURL}`, user));
+	}
+
 }

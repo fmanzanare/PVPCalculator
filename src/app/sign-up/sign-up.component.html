@@ -5,28 +5,28 @@
 	</p>
 </div>
 <div class="form-container">
-	<form>
+	<form method="post" (ngSubmit)="onSubmit()">
 		<div class="name">
 			<label name="name">Nombre:</label>
-			<input name="name" type="text">
+			<input id="name" name="name" type="text" [(ngModel)]=user.userName required>
 		</div>
 		<div class="last_name">
 			<label name="last_name">Apellidos:</label>
-			<input name="last_name" type="text">
+			<input id="lastName" name="last_name" type="text" [(ngModel)]=user.userLastName required>
 		</div>
 		<div class="email">
 			<label name="email">Email:</label>
-			<input name="email" type="email">
+			<input id="email" name="email" type="email" [(ngModel)]=user.userEmail required>
 		</div>
 		<div class="passw">
 			<label name="passw">Contraseña:</label>
-			<input name="passw" type="password">
+			<input id="passw" name="passw" type="password" [(ngModel)]=user.userPassw>
 		</div>
 		<div class="conf_pass">
 			<label name="conf_passw">Confirmar Contraseña:</label>
-			<input name="conf_passw" type="password">
+			<input id="confPassw" name="conf_passw" type="password" required>
 		</div>
-		<button class="register">Registrarse</button>
+		<button class="register" type="submit">Registrarse</button>
 	</form>
 </div>
 
