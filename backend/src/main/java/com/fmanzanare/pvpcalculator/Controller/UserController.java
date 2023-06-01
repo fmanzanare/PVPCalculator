@@ -27,9 +27,9 @@ public class UserController {
 		return (repo.findAll());
 	}
 
-	@GetMapping("/users/{user_email}")
+	@GetMapping("/users/{userEmail}")
 	public ResponseEntity<User> getUserByEmail(@PathVariable String userEmail) {
-		User user = repo.findByEmail(userEmail)
+	User user = repo.findById(userEmail)
 			.orElseThrow(() -> new NoSuchElementException("No se encuentra el usuario con el email " + userEmail));
 		return (ResponseEntity.ok(user));
 	}

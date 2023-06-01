@@ -40,20 +40,20 @@ public class User {
 	}
 
 	// * SETTERS
-	public void setUserEmail(String email) {
-		this.userEmail = email;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
-	public void setUserName(String name) {
-		this.userName = name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public void setUserLastName(String lastName) {
-		this.userLastName = lastName;
+	public void setUserLastName(String userLastName) {
+		this.userLastName = userLastName;
 	}
 
-	public void setUserPassw(String passw) {
-		this.userPassw = passw;
+	public void setUserPassw(String userPassw) {
+		this.userPassw = userPassw;
 	}
 
 }
