@@ -1,20 +1,18 @@
 <main>
 	<div class="login-section">
 		<div class="login-inner">
-			<form>
-				<div id="user">
-					<label name="user">Usuario:</label><br>
-					<input name="user" type="text"><br>
-				</div>
-				<div id="passw">
-					<label name="passw">Contraseña:</label><br>
-					<input name="passw" type="password"><br>
-				</div>
-				<button>Entrar</button>
-				<p>
-					Aún no estás registrado? Pulsa aquí para <a routerLink="sign-up" routerLinkActive="active" (click)="goToSignUp()">REGISTRARTE!</a>
-				</p>
-			</form>
+			<div id="user">
+				<label name="user">Usuario:</label><br>
+				<input id="userInput" name="user" type="text"><br>
+			</div>
+			<div id="passw">
+				<label name="passw">Contraseña:</label><br>
+				<input id="passwInput" name="passw" type="password"><br>
+			</div>
+			<button routerLink="dashboard" routerLinkActive="active" (click)="loginButtonClick()">Entrar</button>
+			<p>
+				Aún no estás registrado? Pulsa aquí para <a routerLink="sign-up" routerLinkActive="active" (click)="goToSignUp()">REGISTRARTE!</a>
+			</p>
 		</div>
 	</div>
 </main>
