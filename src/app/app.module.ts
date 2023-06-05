@@ -20,7 +20,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     LoginComponent,
     NavBarComponent,
     SignUpComponent,
-    SideMenuComponent,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,

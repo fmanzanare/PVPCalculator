@@ -1,25 +1,27 @@
-<div class="side-menu-container">
-	<a class="item" href="#">
-		<img id="icon1">
-		<p>Registrar compra</p>
-	</a>
-	<a class="item" href="#">
-		<img id="icon2">
-		<p>Registrar plato</p>
-	</a>
-	<hr>
-	<a class="item" href="#">
-		<img id="icon3">
-		<p>Ver compras</p>
-	</a>
-	<a class="item" href="#">
-		<img id="icon4">
-		<p>Ver compras</p>
-	</a>
-	<hr>
-	<a class="item" href="#">
-		<img id="icon5">
-		<p>Obtener PVP</p>
-	</a>
+<div class="main-container">
+	<div class="side-menu-container">
+		<a class="item" routerLink="/side-menu/#" routerLinkActive="active">
+			<img id="icon1">
+			<p>Registrar compra</p>
+		</a>
+		<a class="item" routerLink="/side-menu/#" routerLinkActive="active">
+			<img id="icon2">
+			<p>Registrar plato</p>
+		</a>
+		<hr>
+		<a class="item" routerLink="/side-menu/#" routerLinkActive="active">
+			<img id="icon3">
+			<p>Ver compras</p>
+		</a>
+		<a class="item" routerLink="/side-menu/#" routerLinkActive="active">
+			<img id="icon4">
+			<p>Ver compras</p>
+		</a>
+		<hr>
+		<a class="item" routerLink="/side-menu/#" routerLinkActive="active">
+			<img id="icon5">
+			<p>Obtener PVP</p>
+		</a>
+	</div>
+	<router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>

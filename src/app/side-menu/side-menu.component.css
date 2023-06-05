@@ -1,7 +1,13 @@
+.main-container {
+	 display: flex;
+	 height: 90%;
+	 width: 100%;
+}
+
 .side-menu-container {
 	width: 15%;
 	border: whitesmoke 1px solid;
-	height: 90%;
+	height: 100%;
 }
 
 .item {
