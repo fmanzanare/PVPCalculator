@@ -1,3 +1,19 @@
-#side-menu-container {
-	width: 30%;
+.side-menu-container {
+	width: 15%;
+	border: whitesmoke 1px solid;
+	height: 90%;
+}
+
+.item {
+	display: flex;
+	padding: 0.5em 2em;
+	color: whitesmoke;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 20px;
+	text-decoration: none;
+}
+
+.item:hover {
+	background-color: grey;
+
 }
