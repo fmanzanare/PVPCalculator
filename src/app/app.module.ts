@@ -12,6 +12,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { AddPurchaseComponent } from './add-purchase/add-purchase.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { AddDishComponent } from './add-dish/add-dish.component';
+import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { AddPurchaseComponent } from './add-purchase/add-purchase.component';
     NavBarComponent,
     SignUpComponent,
     SideMenuComponent,
-    AddPurchaseComponent
+    AddPurchaseComponent,
+    AddProductComponent,
+    AddDishComponent,
+    AddRecipeComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,9 @@ import { LoginComponent } from './login/login.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddPurchaseComponent } from './add-purchase/add-purchase.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { AddDishComponent } from './add-dish/add-dish.component';
+import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 
 const routes: Routes = [
 	{ path: '',   redirectTo: 'login', pathMatch: 'full' },
@@ -16,7 +19,10 @@ const routes: Routes = [
 		children: [
 			{ path:'', redirectTo:'dashboard', pathMatch:'full' },
 			{ path:'dashboard', component:DashboardComponent},
-			{ path:'add-purchase', component:AddPurchaseComponent }
+			{ path:'add-product', component:AddProductComponent },
+			{ path:'add-dish', component: AddDishComponent },
+			{ path:'add-purchase', component:AddPurchaseComponent },
+			{ path:'add-recipe', component:AddRecipeComponent }
 		]
 	}
 ];
