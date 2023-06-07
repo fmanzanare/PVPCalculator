@@ -21,5 +21,8 @@
 
 .item:hover {
 	background-color: grey;
+}
 
+.router-outlet-container {
+	width: 100%;
 }

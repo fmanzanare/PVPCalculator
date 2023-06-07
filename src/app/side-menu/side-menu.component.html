@@ -1,28 +1,35 @@
 <div class="main-container">
 	<div class="side-menu-container">
-		<a class="item" routerLink="/side-menu/#" routerLinkActive="active">
+		<a class="item" routerLink="/side-menu/dashboard" routerLinkActive="active">
 			<img id="icon1">
+			<p>Dashboard</p>
+		</a>
+		<hr>
+		<a class="item" routerLink="/side-menu/add-purchase" routerLinkActive="active">
+			<img id="icon2">
 			<p>Registrar compra</p>
 		</a>
 		<a class="item" routerLink="/side-menu/#" routerLinkActive="active">
-			<img id="icon2">
+			<img id="icon3">
 			<p>Registrar plato</p>
 		</a>
 		<hr>
 		<a class="item" routerLink="/side-menu/#" routerLinkActive="active">
-			<img id="icon3">
+			<img id="icon4">
 			<p>Ver compras</p>
 		</a>
 		<a class="item" routerLink="/side-menu/#" routerLinkActive="active">
-			<img id="icon4">
+			<img id="icon5">
 			<p>Ver compras</p>
 		</a>
 		<hr>
 		<a class="item" routerLink="/side-menu/#" routerLinkActive="active">
-			<img id="icon5">
+			<img id="icon6">
 			<p>Obtener PVP</p>
 		</a>
 	</div>
-	<router-outlet></router-outlet>
+	<div class="router-outlet-container">
+		<router-outlet></router-outlet>
+	</div>
 </div>
 
