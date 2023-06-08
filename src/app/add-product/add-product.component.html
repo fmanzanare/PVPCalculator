@@ -1,16 +1,16 @@
 <div class="global-container">
-	<form method="post">
+	<form method="post" (ngSubmit)="onSubmit()">
 		<div class="input-field">
 			<label>Nombre del producto:</label><br>
-			<input type="text" name="product-name"><br><br>
+			<input id="prodName" type="text" name="product-name" [(ngModel)]=newProd.prodName required><br><br>
 			<button type="submit">Guardar</button>
 		</div>
 	</form>
 	<div class="lower-section">
 		<p id="registered-products-title">Productos registrados:</p>
 		<div class="registered-products">
-			<div class="item">
-				<p>Item</p>
+			<div class="item" *ngFor="let product of products">
+				<p>{{product.prodName}}</p>
 			</div>
 		</div>
 	</div>

@@ -48,12 +48,12 @@ DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `products` (
-  `prodId` int(11) NOT NULL AUTO_INCREMENT,
-  `prodName` varchar(60) NOT NULL,
-  `prodQuantity` float DEFAULT NULL,
-  `prodWAP` float DEFAULT NULL,
-  PRIMARY KEY (`prodId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `prod_id` int(11) NOT NULL AUTO_INCREMENT,
+  `prod_name` varchar(60) NOT NULL,
+  `prod_quantity` float DEFAULT NULL,
+  `prod_wap` float DEFAULT NULL,
+  PRIMARY KEY (`prod_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,6 +62,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT INTO `products` VALUES (1,'Patatas',0,0),(2,'Arroz',0,0),(3,'Harina',0,0);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -73,13 +74,13 @@ DROP TABLE IF EXISTS `purchase_records`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `purchase_records` (
-  `recId` int(11) NOT NULL AUTO_INCREMENT,
-  `recProdId` int(11) NOT NULL,
-  `recQuantity` float NOT NULL,
-  `recPrice` float NOT NULL,
-  PRIMARY KEY (`recId`),
-  KEY `recProdId` (`recProdId`),
-  CONSTRAINT `purchase_records_ibfk_1` FOREIGN KEY (`recProdId`) REFERENCES `products` (`prodId`)
+  `rec_id` int(11) NOT NULL AUTO_INCREMENT,
+  `rec_prod_id` int(11) NOT NULL,
+  `rec_quantity` float NOT NULL,
+  `rec_price` float NOT NULL,
+  PRIMARY KEY (`rec_id`),
+  KEY `recProdId` (`rec_prod_id`),
+  CONSTRAINT `purchase_records_ibfk_1` FOREIGN KEY (`rec_prod_id`) REFERENCES `products` (`prod_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -107,7 +108,7 @@ CREATE TABLE `recipes` (
   PRIMARY KEY (`recipeDishId`,`recipeProdId`),
   KEY `recipeProdId` (`recipeProdId`),
   CONSTRAINT `recipes_ibfk_1` FOREIGN KEY (`recipeDishId`) REFERENCES `dishes` (`dishId`),
-  CONSTRAINT `recipes_ibfk_2` FOREIGN KEY (`recipeProdId`) REFERENCES `products` (`prodId`)
+  CONSTRAINT `recipes_ibfk_2` FOREIGN KEY (`recipeProdId`) REFERENCES `products` (`prod_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -142,7 +143,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('admin@admin.es','admin','admin admin','admin');
+INSERT INTO `users` VALUES ('admin@admin.es','admin','admin admin','admin'),('jose.jimenez@restaurante1.es','Jose','Jiménez Rodríguez','clave'),('manuel.perez@restaurante1.es','Manuel','Pérez García','12345');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -155,4 +156,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-25 11:49:08
+-- Dump completed on 2023-06-08 12:17:24
