@@ -10,7 +10,9 @@
 		<p id="registered-products-title">Productos registrados:</p>
 		<div class="registered-products">
 			<div class="item" *ngFor="let product of products">
-				<p>{{product.prodName}}</p>
+				<p id="prodName">{{product.prodName}}</p>
+				<p id="prodQuantity">{{product.prodQuantity}} Kg</p>
+				<p id="prodWAP">{{product.prodWAP}} €/Kg</p>
 			</div>
 		</div>
 	</div>

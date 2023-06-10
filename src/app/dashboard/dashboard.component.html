@@ -2,9 +2,9 @@
 	<article id="compras">
 		<h3>Tus compras más recientes:</h3>
 		<div id="compras-recientes">
-			<div class="compra-item">
-				<p class="item-description">Item de prueba</p>
-				<p class="item-price">50.-€</p>
+			<div class="compra-item" *ngFor="let record of purchaseRecords">
+				<p class="item-description">{{record.product.prodName}}</p>
+				<p class="item-price">{{record.recPrice}} €/Kg</p>
 			</div>
 		</div>
 	</article>

@@ -1,10 +1,13 @@
 package com.fmanzanare.pvpcalculator.Model;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,6 +27,9 @@ public class Product {
 
 	@Column(name = "prod_wap")
 	private float	prodWAP;
+
+	@OneToMany(mappedBy = "recId")
+	private List<PurchaseRecord> purchaseRecords;
 
 	// * GETTERS
 	public int getProdId() {

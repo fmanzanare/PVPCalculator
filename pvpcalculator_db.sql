@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.33, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.39, for Win64 (x86_64)
 --
 -- Host: localhost    Database: pvpcalculator
 -- ------------------------------------------------------
--- Server version	5.7.33
+-- Server version	5.7.39
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -53,7 +53,7 @@ CREATE TABLE `products` (
   `prod_quantity` float DEFAULT NULL,
   `prod_wap` float DEFAULT NULL,
   PRIMARY KEY (`prod_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +62,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Patatas',0,0),(2,'Arroz',0,0),(3,'Harina',0,0);
+INSERT INTO `products` VALUES (11,'Patatas',3,0.9);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,7 +81,7 @@ CREATE TABLE `purchase_records` (
   PRIMARY KEY (`rec_id`),
   KEY `recProdId` (`rec_prod_id`),
   CONSTRAINT `purchase_records_ibfk_1` FOREIGN KEY (`rec_prod_id`) REFERENCES `products` (`prod_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,8 +90,55 @@ CREATE TABLE `purchase_records` (
 
 LOCK TABLES `purchase_records` WRITE;
 /*!40000 ALTER TABLE `purchase_records` DISABLE KEYS */;
+INSERT INTO `purchase_records` VALUES (16,11,1,1),(18,11,2,0.85);
 /*!40000 ALTER TABLE `purchase_records` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER update_prod_quantity_and_wap
+AFTER INSERT ON purchase_records FOR EACH ROW
+BEGIN
+UPDATE products
+SET 
+products.prod_quantity = (SELECT SUM(purchase_records.rec_quantity) FROM purchase_records WHERE purchase_records.rec_prod_id = NEW.rec_prod_id),
+products.prod_wap = (SELECT SUM(purchase_records.rec_quantity * purchase_records.rec_price)/SUM(purchase_records.rec_quantity) FROM purchase_records WHERE purchase_records.rec_prod_id = NEW.rec_prod_id)
+WHERE prod_id = NEW.rec_prod_id;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER update_prod_quantity_and_wap_after_delete
+AFTER DELETE ON purchase_records FOR EACH ROW
+BEGIN
+UPDATE products
+SET
+products.prod_quantity = (SELECT SUM(purchase_records.rec_quantity) FROM purchase_records WHERE purchase_records.rec_prod_id = OLD.rec_prod_id),
+products.prod_wap = (SELECT SUM(purchase_records.rec_quantity * purchase_records.rec_price)/SUM(purchase_records.rec_quantity) FROM purchase_records WHERE purchase_records.rec_prod_id = OLD.rec_prod_id)
+WHERE prod_id = OLD.rec_prod_id;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `recipes`
@@ -156,4 +203,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-08 12:17:24
+-- Dump completed on 2023-06-10 19:11:56

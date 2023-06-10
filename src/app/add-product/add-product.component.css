@@ -48,10 +48,26 @@ label {
 }
 
 .item {
+	display: grid;
+	grid-template-columns: 3;
 	background-color: teal;
 	padding: 1px 1em;
 	color: whitesmoke;
 	border-radius: 5px;
 	font-size: 20px;
 	margin-bottom: 0.5em;
+}
+
+#prodName {
+	grid-column: 1/2;
+}
+
+#prodQuantity {
+	grid-column: 2/3;
+	justify-self: end;
+}
+
+#prodWAP {
+	grid-column: 3/4;
+	justify-self: end;
 }

@@ -1,3 +1,28 @@
-<div>
-	<p>add-purchase works!</p>
+<div class="global-container">
+	<form method="post" (ngSubmit)="onSubmit()">
+		<div class="inputs-field">
+			<div>
+				<label>Producto:</label>
+				<select id="product" [(ngModel)]=purchaseRecord.product name="product">
+					<option [ngValue]="undefined">Seleccione un producto</option>
+					<option *ngFor="let product of products" [ngValue]="product">{{product.prodName}}</option>
+				</select>
+			</div><br><br>
+			<label>Cantidad (kg)</label><br>
+			<input id="quantity" type="number" name="recQuantity" [(ngModel)]=purchaseRecord.recQuantity required><br><br>
+			<label>Precio (€/kg)</label><br>
+			<input id="price" type="number" name="recPrice" [(ngModel)]=purchaseRecord.recPrice required><br><br>
+			<button type="submit">Guardar</button>
+		</div>
+	</form>
+	<div class="lower-section">
+		<p id="registered-records-title">Compras registradas:</p>
+		<div class="registered-records">
+			<div class="item" *ngFor="let record of purchaseRecords">
+				<p id="recProdName">{{record.product.prodName}}</p>
+				<p id="recQuantity">{{record.recQuantity}} Kg</p>
+				<p id="recPrice">{{record.recPrice}} €/Kg</p>
+			</div>
+		</div>
+	</div>
 </div>
