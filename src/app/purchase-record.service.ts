@@ -23,4 +23,12 @@ export class PurchaseRecordService {
 	addPurchaseRecord(purchaseRecord: PurchaseRecord): Observable<Object> {
 		return (this.httpClient.post(`${this.baseURL}`, purchaseRecord));
 	}
+
+	deletePurchaseRecord(recId: number): Observable<Object> {
+		return (this.httpClient.delete(`${this.baseURL}/${recId}`));
+	}
+
+	updatePurchaseRecord(recId: number, record: PurchaseRecord): Observable<Object> {
+		return (this.httpClient.put(`${this.baseURL}/${recId}`, record));
+	}
 }

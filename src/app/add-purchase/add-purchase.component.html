@@ -1,7 +1,7 @@
 <div class="global-container">
 	<form method="post" (ngSubmit)="onSubmit()">
 		<div class="inputs-field">
-			<div>
+			<div id="product-select-element">
 				<label>Producto:</label>
 				<select id="product" [(ngModel)]=purchaseRecord.product name="product">
 					<option [ngValue]="undefined">Seleccione un producto</option>
@@ -12,16 +12,25 @@
 			<input id="quantity" type="number" name="recQuantity" [(ngModel)]=purchaseRecord.recQuantity required><br><br>
 			<label>Precio (€/kg)</label><br>
 			<input id="price" type="number" name="recPrice" [(ngModel)]=purchaseRecord.recPrice required><br><br>
-			<button type="submit">Guardar</button>
+			<button id="submit" type="submit">Guardar</button>
 		</div>
 	</form>
+	<div class="update">
+		<button id="update" (click)="executeUpdate()">Actualizar</button>
+	</div>
 	<div class="lower-section">
-		<p id="registered-records-title">Compras registradas:</p>
+		<p id="registered-records-title">
+			Compras registradas:
+			<span style="font-size: 18px; font-style: italic;">(Para modificar un registro, clicke sobre el nombre del producto)</span>
+		</p>
 		<div class="registered-records">
 			<div class="item" *ngFor="let record of purchaseRecords">
-				<p id="recProdName">{{record.product.prodName}}</p>
+				<p id="recProdName" (click)="updateRecord(record.recId)">{{record.product.prodName}}</p>
 				<p id="recQuantity">{{record.recQuantity}} Kg</p>
 				<p id="recPrice">{{record.recPrice}} €/Kg</p>
+				<a id="delete" href="http://localhost:4200/side-menu/add-purchase" (click)="deleteOnClick(record.recId)">
+					X
+				</a>
 			</div>
 		</div>
 	</div>

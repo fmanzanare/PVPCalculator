@@ -34,6 +34,11 @@ label {
 	color: whitesmoke;
 }
 
+.update {
+	width: 100%;
+	padding-left: 5em;
+}
+
 .lower-section {
 	width: 100%;
 	padding: 0 10em;
@@ -55,7 +60,7 @@ label {
 
 .item {
 	display: grid;
-	grid-template-columns: 3;
+	grid-template-columns: 1fr 1fr 1fr auto;
 	background-color: teal;
 	padding: 1px 1em;
 	color: whitesmoke;
@@ -76,4 +81,16 @@ label {
 #recPrice {
 	grid-column: 3/4;
 	justify-self: end;
+}
+
+#delete {
+	grid-column: 4/5;
+	align-self: center;
+	justify-self: center;
+	text-decoration: none;
+	color: whitesmoke;
+	background-color: brown;
+	padding: 0.5em 1em;
+	border-radius: 5px;
+	margin-left: 3em;
 }

@@ -61,7 +61,6 @@ export class AddProductComponent implements OnInit {
 	}
 
 	deleteOnClick(prodId: number) {
-		this.getPurchaseRecordsList()
 		let flag = confirm("Si borra el producto, se eliminarán todas las compras asociadas.\n¿Desea continuar?");
 
 		if (flag) {

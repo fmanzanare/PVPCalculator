@@ -1,0 +1,11 @@
+<div class="global-container">
+	<form method="post" (ngSubmit)="onSubmit()">
+		<div class="inputs-field">
+			<label>Cantidad (kg)</label><br>
+			<input id="quantity" type="number" name="recQuantity" [(ngModel)]=record.recQuantity required><br><br>
+			<label>Precio (€/kg)</label><br>
+			<input id="price" type="number" name="recPrice" [(ngModel)]=record.recPrice required><br><br>
+			<button type="submit">Guardar</button>
+		</div>
+	</form>
+</div>

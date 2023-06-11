@@ -15,6 +15,7 @@ import { AddPurchaseComponent } from './add-purchase/add-purchase.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AddDishComponent } from './add-dish/add-dish.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
+import { UpdatePurchaseComponent } from './update-purchase/update-purchase.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { AddRecipeComponent } from './add-recipe/add-recipe.component';
     AddPurchaseComponent,
     AddProductComponent,
     AddDishComponent,
-    AddRecipeComponent
+    AddRecipeComponent,
+    UpdatePurchaseComponent
   ],
   imports: [
     BrowserModule,

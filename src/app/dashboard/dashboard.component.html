@@ -9,11 +9,11 @@
 		</div>
 	</article>
 	<article id="recetas">
-		<h3>Recetas añadidas recientemente:</h3>
+		<h3>Tus productos:</h3>
 		<div id="platos-recientes">
-			<div class="plato-item">
-				<p class="item-description">Item de prueba</p>
-				<p class="item-price">20.-€</p>
+			<div class="plato-item" *ngFor="let product of products">
+				<p class="item-description">{{product.prodName}}</p>
+				<p class="item-price">{{product.prodWAP}} €/Kg</p>
 			</div>
 		</div>
 	</article>
