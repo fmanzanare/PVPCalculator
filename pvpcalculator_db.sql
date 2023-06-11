@@ -23,12 +23,13 @@ DROP TABLE IF EXISTS `dishes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `dishes` (
-  `dishId` int(11) NOT NULL AUTO_INCREMENT,
-  `dishName` varchar(100) NOT NULL,
-  `dishCost` float DEFAULT NULL,
-  `dishFinalPrice` float DEFAULT NULL,
-  PRIMARY KEY (`dishId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `dish_id` int(11) NOT NULL AUTO_INCREMENT,
+  `dish_name` varchar(100) NOT NULL,
+  `dish_cost` float DEFAULT NULL,
+  `dish_margin` float NOT NULL DEFAULT '0.15',
+  `dish_final_price` float DEFAULT NULL,
+  PRIMARY KEY (`dish_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +38,7 @@ CREATE TABLE `dishes` (
 
 LOCK TABLES `dishes` WRITE;
 /*!40000 ALTER TABLE `dishes` DISABLE KEYS */;
+INSERT INTO `dishes` VALUES (2,'Paella',NULL,0.15,NULL);
 /*!40000 ALTER TABLE `dishes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -53,7 +55,7 @@ CREATE TABLE `products` (
   `prod_quantity` float DEFAULT NULL,
   `prod_wap` float DEFAULT NULL,
   PRIMARY KEY (`prod_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +64,6 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (11,'Patatas',3,0.9);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,9 +80,9 @@ CREATE TABLE `purchase_records` (
   `rec_quantity` float NOT NULL,
   `rec_price` float NOT NULL,
   PRIMARY KEY (`rec_id`),
-  KEY `recProdId` (`rec_prod_id`),
-  CONSTRAINT `purchase_records_ibfk_1` FOREIGN KEY (`rec_prod_id`) REFERENCES `products` (`prod_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+  KEY `FK_purchase_records_products` (`rec_prod_id`),
+  CONSTRAINT `FK_purchase_records_products` FOREIGN KEY (`rec_prod_id`) REFERENCES `products` (`prod_id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +91,6 @@ CREATE TABLE `purchase_records` (
 
 LOCK TABLES `purchase_records` WRITE;
 /*!40000 ALTER TABLE `purchase_records` DISABLE KEYS */;
-INSERT INTO `purchase_records` VALUES (16,11,1,1),(18,11,2,0.85);
 /*!40000 ALTER TABLE `purchase_records` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -148,14 +148,14 @@ DROP TABLE IF EXISTS `recipes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `recipes` (
-  `recipeDishId` int(11) NOT NULL,
-  `recipeProdId` int(11) NOT NULL,
-  `recipeProdQuantity` float NOT NULL,
-  `recipeProdCost` float DEFAULT NULL,
-  PRIMARY KEY (`recipeDishId`,`recipeProdId`),
-  KEY `recipeProdId` (`recipeProdId`),
-  CONSTRAINT `recipes_ibfk_1` FOREIGN KEY (`recipeDishId`) REFERENCES `dishes` (`dishId`),
-  CONSTRAINT `recipes_ibfk_2` FOREIGN KEY (`recipeProdId`) REFERENCES `products` (`prod_id`)
+  `recipe_dish_id` int(11) NOT NULL,
+  `recipe_prod_id` int(11) NOT NULL,
+  `recipe_prod_quantity` float NOT NULL,
+  `recipe_prod_cost` float DEFAULT NULL,
+  PRIMARY KEY (`recipe_dish_id`,`recipe_prod_id`),
+  KEY `recipe_prod_id` (`recipe_prod_id`),
+  CONSTRAINT `recipes_ibfk_1` FOREIGN KEY (`recipe_dish_id`) REFERENCES `dishes` (`dish_id`),
+  CONSTRAINT `recipes_ibfk_2` FOREIGN KEY (`recipe_prod_id`) REFERENCES `products` (`prod_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -203,4 +203,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-10 19:11:56
+-- Dump completed on 2023-06-11 13:05:35
