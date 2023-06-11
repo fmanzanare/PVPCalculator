@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
+import { PurchaseRecord } from '../purchase-record';
+import { PurchaseRecordService } from '../purchase-record.service';
 
 @Component({
   selector: 'app-add-product',
@@ -12,9 +14,11 @@ export class AddProductComponent implements OnInit {
 
 	newProd: Product = new Product()
 	products: Product[] = []
+	purchaseRecords: PurchaseRecord[] = []
 
 	constructor(
 		private productService: ProductService,
+		private purchaseRecordService: PurchaseRecordService,
 		private router: Router
 	) {}
 
@@ -48,6 +52,23 @@ export class AddProductComponent implements OnInit {
 		}
 
 		input.value = "";
+	}
+
+	getPurchaseRecordsList() {
+		this.purchaseRecordService.getPurchaseRecordsList().subscribe ( data => {
+			this.purchaseRecords = data;
+		}, error => console.log(error));
+	}
+
+	deleteOnClick(prodId: number) {
+		this.getPurchaseRecordsList()
+		let flag = confirm("Si borra el producto, se eliminarán todas las compras asociadas.\n¿Desea continuar?");
+
+		if (flag) {
+			this.productService.deleteProduct(prodId).subscribe( data => {
+				this.getProductsList();
+			})
+		}
 	}
 
 }

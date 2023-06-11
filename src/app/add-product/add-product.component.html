@@ -13,7 +13,11 @@
 				<p id="prodName">{{product.prodName}}</p>
 				<p id="prodQuantity">{{product.prodQuantity}} Kg</p>
 				<p id="prodWAP">{{product.prodWAP}} €/Kg</p>
+				<a id="delete" href="http://localhost:4200/side-menu/add-product" (click)="deleteOnClick(product.prodId)">
+					X
+				</a>
 			</div>
+
 		</div>
 	</div>
 </div>
